@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'
+const API_BASE_URL = import.meta.env.VITE_API_URL || ''
 
 function formatApiError(data) {
   if (!data) {
@@ -42,7 +42,8 @@ async function request(path, options = {}) {
       },
     })
   } catch (error) {
-    throw new Error(`Backend tidak bisa diakses di ${API_BASE_URL}. Jalankan dulu: npm run dev:backend`)
+    const target = API_BASE_URL || 'same-origin /api'
+    throw new Error(`Backend tidak bisa diakses di ${target}. Jalankan dulu: npm run dev:backend`)
   }
 
   if (response.status === 204) {

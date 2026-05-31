@@ -40,10 +40,9 @@ app.add_middleware(SecurityHeadersMiddleware)
 
 
 @app.on_event("startup")
-async def create_local_tables() -> None:
-    if settings.async_database_url.startswith("sqlite"):
-        async with engine.begin() as conn:
-            await conn.run_sync(Base.metadata.create_all)
+async def create_tables() -> None:
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
 
 
 @app.get("/")
