@@ -11,7 +11,15 @@
           :key="`${skill.name}-${skill.copy}`"
           class="skill-card"
         >
-          <img class="skill-logo" :src="skill.logo" :alt="`${skill.name} logo`" loading="lazy" />
+          <img
+            class="skill-logo"
+            :src="skill.logo"
+            :alt="`${skill.name} logo`"
+            width="54"
+            height="54"
+            loading="lazy"
+            decoding="async"
+          />
           <span class="skill-name">{{ skill.name }}</span>
         </article>
       </div>

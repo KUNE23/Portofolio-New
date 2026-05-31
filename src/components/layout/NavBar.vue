@@ -47,6 +47,7 @@ import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 
 const isOpen = ref(false)
 const activeHref = ref('#home')
+let navObserver
 
 const links = [
   { label: 'Home', href: '#home' },
@@ -68,15 +69,9 @@ const scrollToSection = (href) => {
     return
   }
 
-  const headerOffset = window.innerWidth < 768 ? 92 : 88
-  const sectionTop = section.getBoundingClientRect().top + window.scrollY
-
   setActive(href)
   window.history.pushState(null, '', href)
-  window.scrollTo({
-    top: Math.max(sectionTop - headerOffset, 0),
-    behavior: 'smooth',
-  })
+  section.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
 const handleMobileClick = async (href) => {
@@ -85,27 +80,36 @@ const handleMobileClick = async (href) => {
   scrollToSection(href)
 }
 
-const updateActiveLink = () => {
-  const scrollPosition = window.scrollY + 140
-  const activeLink = links
-    .map((link) => ({
-      ...link,
-      section: document.querySelector(link.href),
-    }))
-    .filter((link) => link.section)
-    .reverse()
-    .find((link) => link.section.offsetTop <= scrollPosition)
-
-  activeHref.value = activeLink?.href || '#home'
-}
-
 onMounted(() => {
-  updateActiveLink()
-  window.addEventListener('scroll', updateActiveLink, { passive: true })
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visibleEntry = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0]
+
+      if (visibleEntry) {
+        activeHref.value = `#${visibleEntry.target.id}`
+      }
+    },
+    {
+      rootMargin: '-35% 0px -55% 0px',
+      threshold: [0.1, 0.35, 0.6],
+    }
+  )
+
+  links.forEach((link) => {
+    const section = document.querySelector(link.href)
+
+    if (section) {
+      observer.observe(section)
+    }
+  })
+
+  navObserver = observer
 })
 
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', updateActiveLink)
+  navObserver?.disconnect()
 })
 </script>
 

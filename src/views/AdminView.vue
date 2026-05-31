@@ -242,6 +242,7 @@
 
 <script setup>
 import { computed, onMounted, reactive, ref } from 'vue'
+import '@/admin.css'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'

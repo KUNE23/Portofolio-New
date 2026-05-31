@@ -17,7 +17,10 @@
             :alt="project.title"
             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             :src="project.image_url"
+            width="1280"
+            height="720"
             loading="lazy"
+            decoding="async"
           />
         </div>
         <div class="project-content">

@@ -35,7 +35,16 @@
       <div class="profile-frame relative w-full md:aspect-auto md:h-[500px]">
         <div class="absolute inset-0 bg-surface-container-lowest rounded-lg bento-shadow rotate-3 border border-outline-variant/10"></div>
         <div class="absolute inset-0 bg-white rounded-lg bento-shadow -rotate-2 border border-outline-variant/20 overflow-hidden group">
-          <img alt="Alfiansyah Profile" class="w-full h-full object-cover profile-photo grayscale group-hover:grayscale-0 transition-all duration-700" :src="profilePhoto"/>
+          <img
+            alt="Alfiansyah Profile"
+            class="w-full h-full object-cover profile-photo grayscale group-hover:grayscale-0 transition-all duration-700"
+            :src="profilePhoto"
+            width="1024"
+            height="1536"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
         </div>
         <!-- Floating Stickers -->
         <div class="absolute -top-6 -right-6 animate-float bg-soft-blue p-4 rounded-lg bento-shadow border border-white/50">
@@ -60,7 +69,7 @@
 <script setup>
 import { Code, Download, PenTool as Draw } from '@lucide/vue'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
-import profilePhoto from '@/assets/profile-home.jpeg'
+import profilePhoto from '@/assets/profile-home.webp'
 
 const targetText = 'large-language-\nmodel intelligence.'
 const typedText = ref('')
