@@ -1,0 +1,10 @@
+.env
+backend/.env
+backend/.venv/
+backend/portfolio.db
+node_modules/
+dist/
+.claude/
+.codex/
+__pycache__/
+*.pyc
