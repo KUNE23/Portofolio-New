@@ -161,12 +161,17 @@ onBeforeUnmount(() => {
   }
 
   .profile-frame {
-    max-width: min(100%, 24rem);
+    aspect-ratio: 2 / 3;
+    max-width: min(100%, 22rem);
     margin-inline: auto;
   }
 
+  .profile-frame > div {
+    transform: none;
+  }
+
   .profile-photo {
-    object-position: center 50%;
+    object-position: center center;
   }
 }
 </style>

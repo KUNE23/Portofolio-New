@@ -43,7 +43,7 @@
 
 <script setup>
 import { Menu, X } from '@lucide/vue'
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 
 const isOpen = ref(false)
 const activeHref = ref('#home')
@@ -79,8 +79,9 @@ const scrollToSection = (href) => {
   })
 }
 
-const handleMobileClick = (href) => {
+const handleMobileClick = async (href) => {
   isOpen.value = false
+  await nextTick()
   scrollToSection(href)
 }
 
