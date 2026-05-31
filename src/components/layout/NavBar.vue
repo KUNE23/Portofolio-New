@@ -8,7 +8,7 @@
           class="desktop-nav-link font-body-md text-body-md hover:scale-105 transition-all"
           :class="{ 'is-active': activeHref === link.href }"
           :href="link.href"
-          @click="setActive(link.href)"
+          @click.prevent="scrollToSection(link.href)"
         >
           {{ link.label }}
         </a>
@@ -33,7 +33,7 @@
         class="mobile-nav-link"
         :class="{ 'is-active': activeHref === link.href }"
         :href="link.href"
-        @click="handleMobileClick(link.href)"
+        @click.prevent="handleMobileClick(link.href)"
       >
         {{ link.label }}
       </a>
@@ -60,9 +60,28 @@ const setActive = (href) => {
   activeHref.value = href
 }
 
-const handleMobileClick = (href) => {
+const scrollToSection = (href) => {
+  const section = document.querySelector(href)
+
+  if (!section) {
+    setActive(href)
+    return
+  }
+
+  const headerOffset = window.innerWidth < 768 ? 92 : 88
+  const sectionTop = section.getBoundingClientRect().top + window.scrollY
+
   setActive(href)
+  window.history.pushState(null, '', href)
+  window.scrollTo({
+    top: Math.max(sectionTop - headerOffset, 0),
+    behavior: 'smooth',
+  })
+}
+
+const handleMobileClick = (href) => {
   isOpen.value = false
+  scrollToSection(href)
 }
 
 const updateActiveLink = () => {

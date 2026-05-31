@@ -9,9 +9,9 @@
                   Informatics Student • Web Developer • AI Enthusiast
                 </span>
       </div>
-      <h1 class="font-display text-headline-lg-mobile md:text-display text-on-background leading-tight">
-         Building useful web experiences while exploring
-        <span class="text-primary typewriter-text" aria-label="large‑language‑model intelligence. ">
+      <h1 class="hero-title font-display text-headline-lg-mobile md:text-display text-on-background leading-tight">
+        Building useful web experiences while exploring
+        <span class="text-primary typewriter-text" aria-label="large-language-model intelligence.">
           {{ typedText }}<span class="typewriter-cursor" aria-hidden="true"></span>
         </span>
       </h1>
@@ -32,7 +32,7 @@
     </div>
     <div class="lg:col-span-5 relative flex items-center justify-center">
       <!-- Profile Bento Stack -->
-      <div class="relative w-full aspect-square md:aspect-auto md:h-[500px]">
+      <div class="profile-frame relative w-full md:aspect-auto md:h-[500px]">
         <div class="absolute inset-0 bg-surface-container-lowest rounded-lg bento-shadow rotate-3 border border-outline-variant/10"></div>
         <div class="absolute inset-0 bg-white rounded-lg bento-shadow -rotate-2 border border-outline-variant/20 overflow-hidden group">
           <img alt="Alfiansyah Profile" class="w-full h-full object-cover profile-photo grayscale group-hover:grayscale-0 transition-all duration-700" :src="profilePhoto"/>
@@ -62,7 +62,7 @@ import { Code, Download, PenTool as Draw } from '@lucide/vue'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import profilePhoto from '@/assets/profile-home.jpeg'
 
-const targetText = ' large‑language‑model intelligence. '
+const targetText = 'large-language-\nmodel intelligence.'
 const typedText = ref('')
 let typingTimer
 let deletingTimer
@@ -123,7 +123,11 @@ onBeforeUnmount(() => {
 }
 .typewriter-text {
   display: inline-block;
-  min-width: min(100%, 12.5ch);
+  min-width: min(100%, 15ch);
+  white-space: pre-line;
+}
+.profile-frame {
+  aspect-ratio: 3 / 4;
 }
 .typewriter-cursor {
   display: inline-block;
@@ -140,6 +144,29 @@ onBeforeUnmount(() => {
   }
 }
 .profile-photo {
-  object-position: center 28%;
+  object-position: center 42%;
+}
+@media (max-width: 767px) {
+  .hero-title {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .typewriter-text {
+    display: block;
+    margin-top: 0.2em;
+    min-width: 0;
+    max-width: 100%;
+    line-height: 1.08;
+  }
+
+  .profile-frame {
+    max-width: min(100%, 24rem);
+    margin-inline: auto;
+  }
+
+  .profile-photo {
+    object-position: center 50%;
+  }
 }
 </style>
