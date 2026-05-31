@@ -453,9 +453,6 @@ async function removeSkill(id) {
 }
 
 onMounted(async () => {
-  projects.value = defaultProjects
-  skills.value = defaultSkills
-
   if (!adminToken.value) {
     return
   }
