@@ -2,3 +2,11 @@
 name = "portofolio-new-api"
 version = "1.0.0"
 requires-python = ">=3.12,<3.14"
+dependencies = [
+  "fastapi==0.136.3",
+  "uvicorn[standard]==0.38.0",
+  "sqlalchemy[asyncio]==2.0.45",
+  "asyncpg==0.31.0",
+  "aiosqlite==0.20.0",
+  "pydantic==2.13.4",
+]
