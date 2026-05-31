@@ -46,6 +46,11 @@ async def create_local_tables() -> None:
             await conn.run_sync(Base.metadata.create_all)
 
 
+@app.get("/")
+async def root() -> dict[str, str]:
+    return {"name": "Portfolio API", "status": "ok", "health": "/api/health"}
+
+
 @app.get("/api/health")
 async def health() -> dict[str, str]:
     return {"status": "ok"}

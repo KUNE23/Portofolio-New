@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "dev": "vite",
-    "dev:backend": "cd backend && .venv/bin/uvicorn app.main:app --reload --host 127.0.0.1 --port 8000 --env-file .env",
+    "dev:backend": "cd backend && python3 dev_server.py",
     "build": "vite build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
