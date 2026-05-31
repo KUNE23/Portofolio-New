@@ -5,7 +5,7 @@
         <CardHeader>
           <p class="eyebrow">Admin Access</p>
           <CardTitle>Portfolio Dashboard</CardTitle>
-          <CardDescription>Masukkan admin token untuk mengelola Projects dan Skills dari database lokal.</CardDescription>
+          <CardDescription>Masukkan admin token untuk mengelola Projects dan Skills dari database production.</CardDescription>
         </CardHeader>
         <CardContent>
           <form class="form-stack" @submit.prevent="login">
@@ -48,8 +48,8 @@
         <Card class="sidebar-card">
           <CardContent>
             <p class="eyebrow">Environment</p>
-            <p class="sidebar-card-title">Local SQLite</p>
-            <p class="muted">API aktif di `127.0.0.1:8000`.</p>
+            <p class="sidebar-card-title">Vercel + Supabase</p>
+            <p class="muted">API aktif di domain production.</p>
           </CardContent>
         </Card>
       </aside>
@@ -132,7 +132,7 @@
           <Card>
             <CardHeader>
               <CardTitle>Project Records</CardTitle>
-              <CardDescription>Daftar project yang tersimpan di database lokal.</CardDescription>
+              <CardDescription>Daftar project yang tersimpan di Supabase.</CardDescription>
             </CardHeader>
             <CardContent>
               <div class="table-list">
