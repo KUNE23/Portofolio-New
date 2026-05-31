@@ -3,10 +3,10 @@
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
       <div>
         <span class="font-label-sm text-primary tracking-widest uppercase">Portfolio Highlights</span>
-        <h2 class="font-display text-headline-lg text-on-background">Featured Works</h2>
+        <h2 class="font-display text-headline-lg text-on-background">Selected Projects That Reflect My Growth</h2>
       </div>
       <p class="text-on-surface-variant max-w-md">
-        A selection of platforms I've designed and developed, from educational hubs to management systems.
+        A collection of web applications, management systems, and digital platforms that I have designed and developed while improving my skills as a Fullstack Developer and exploring AI-driven solutions.
       </p>
     </div>
 

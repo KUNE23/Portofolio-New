@@ -5,8 +5,10 @@
         <a
           v-for="link in links"
           :key="link.href"
-          class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:scale-105 transition-all"
+          class="desktop-nav-link font-body-md text-body-md hover:scale-105 transition-all"
+          :class="{ 'is-active': activeHref === link.href }"
           :href="link.href"
+          @click="setActive(link.href)"
         >
           {{ link.label }}
         </a>
@@ -29,8 +31,9 @@
         v-for="link in links"
         :key="link.href"
         class="mobile-nav-link"
+        :class="{ 'is-active': activeHref === link.href }"
         :href="link.href"
-        @click="isOpen = false"
+        @click="handleMobileClick(link.href)"
       >
         {{ link.label }}
       </a>
@@ -40,9 +43,10 @@
 
 <script setup>
 import { Menu, X } from '@lucide/vue'
-import { ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 const isOpen = ref(false)
+const activeHref = ref('#home')
 
 const links = [
   { label: 'Home', href: '#home' },
@@ -51,6 +55,38 @@ const links = [
   { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
 ]
+
+const setActive = (href) => {
+  activeHref.value = href
+}
+
+const handleMobileClick = (href) => {
+  setActive(href)
+  isOpen.value = false
+}
+
+const updateActiveLink = () => {
+  const scrollPosition = window.scrollY + 140
+  const activeLink = links
+    .map((link) => ({
+      ...link,
+      section: document.querySelector(link.href),
+    }))
+    .filter((link) => link.section)
+    .reverse()
+    .find((link) => link.section.offsetTop <= scrollPosition)
+
+  activeHref.value = activeLink?.href || '#home'
+}
+
+onMounted(() => {
+  updateActiveLink()
+  window.addEventListener('scroll', updateActiveLink, { passive: true })
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', updateActiveLink)
+})
 </script>
 
 <style scoped>
@@ -60,7 +96,13 @@ const links = [
   align-items: center;
 }
 
-.desktop-nav a:first-child {
+.desktop-nav-link {
+  color: #5f6368;
+  border-bottom: 2px solid transparent;
+  font-weight: 500;
+}
+
+.desktop-nav-link.is-active {
   color: #d92d20;
   font-weight: 700;
   border-bottom: 2px solid #d92d20;
@@ -118,7 +160,7 @@ const links = [
     text-align: center;
   }
 
-  .mobile-nav-link:first-child,
+  .mobile-nav-link.is-active,
   .mobile-nav-link:hover {
     background: #f4f6f8;
     color: #d92d20;

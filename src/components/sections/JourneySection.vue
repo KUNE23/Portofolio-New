@@ -3,10 +3,10 @@
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
       <div>
         <span class="font-label-sm text-primary tracking-widest uppercase">Journey</span>
-        <h2 class="font-display text-headline-lg text-on-background">Learning by building.</h2>
+        <h2 class="font-display text-headline-lg text-on-background">Learning, Building, and Growing as a Developer.</h2>
       </div>
       <p class="text-on-surface-variant max-w-md">
-        Beberapa titik penting dari proses belajar, organisasi, dan project yang membentuk cara saya membangun produk digital.
+       A short overview of my growth as an Informatics Engineering student, from learning web development fundamentals to building real projects and exploring AI-powered solutions.
       </p>
     </div>
 
@@ -28,18 +28,18 @@
 const timeline = [
   {
     year: '2024',
-    title: 'Started Web Development',
-    description: 'Mendalami dasar frontend, backend, dan workflow pembuatan aplikasi web modern.',
+    title: 'Started My Web Development Journey',
+    description: 'Began learning the fundamentals of frontend, backend, databases, and how modern web applications are built.',
   },
   {
     year: '2025',
-    title: 'Built Real Projects',
-    description: 'Mengembangkan website portofolio, sistem internal, dan dashboard yang fokus pada kebutuhan pengguna.',
+    title: 'Built Real Digital Products',
+    description: 'Developed portfolio websites, internal systems, dashboards, and learning platforms focused on real user needs.',
   },
   {
     year: 'Now',
-    title: 'Sharpening Product Craft',
-    description: 'Memperkuat kemampuan UI, arsitektur aplikasi, dan problem solving lewat project yang lebih terarah.',
+    title: 'Exploring AI and Smarter Solutions',
+    description: 'Currently improving my fullstack skills while learning Artificial Intelligence to build more intelligent, efficient, and impactful digital products.',
   },
 ]
 </script>

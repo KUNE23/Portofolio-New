@@ -6,21 +6,28 @@
     <div class="lg:col-span-7 flex flex-col justify-center gap-6">
       <div class="inline-flex">
         <span class="bg-soft-yellow text-on-secondary-fixed-variant px-4 py-1.5 rounded-full font-label-sm border border-outline-variant/20 sticker-badge">
-                  Informatics Student • Web Developer
+                  Informatics Student • Web Developer • AI Enthusiast
                 </span>
       </div>
       <h1 class="font-display text-headline-lg-mobile md:text-display text-on-background leading-tight">
-        Building digital things that feel
-        <span class="text-primary typewriter-text" aria-label="simple, useful, and alive.">
+         Building useful web experiences while exploring
+        <span class="text-primary typewriter-text" aria-label="large‑language‑model intelligence. ">
           {{ typedText }}<span class="typewriter-cursor" aria-hidden="true"></span>
         </span>
       </h1>
       <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
-                    Hi, I’m Alfiansyah. I create web experiences, information systems, and clean interfaces for real-world problems.
-                </p>
+                    <b>Hi, I’m Alfiansyah </b> – a Computer‑Science student and full‑stack developer who builds web experiences, information systems, and clean interfaces to solve real‑world problems.
+ I’m currently deepening my expertise in AI, especially large‑language‑model integration, to make my applications smarter and more useful.
+      </p>
       <div class="flex flex-wrap gap-4 mt-4">
-        <a class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md bento-shadow transition-all hover:scale-105 active:scale-95" href="#projects">See My Work</a>
-        <a class="border border-outline-variant px-8 py-4 rounded-full font-headline-md text-on-surface-variant hover:bg-surface-container transition-all" href="#about">About Me</a>
+        <a
+          class="resume-button inline-flex items-center gap-2 bg-primary text-on-primary border border-primary px-8 py-4 rounded-full font-headline-md bento-shadow transition-all hover:bg-white hover:text-primary hover:scale-105 active:scale-95"
+          href="/resume.pdf"
+          download
+        >
+          <Download class="w-5 h-5" aria-hidden="true" />
+          <span>Download Resume</span>
+        </a>
       </div>
     </div>
     <div class="lg:col-span-5 relative flex items-center justify-center">
@@ -39,7 +46,7 @@
             <Draw class="text-primary" />
           </div>
           <div>
-            <p class="font-label-sm text-on-background">Design Logic</p>
+            <p class="font-label-sm text-on-background">Code & Intelligence</p>
             <div class="h-1.5 w-16 bg-surface-container rounded-full overflow-hidden">
               <div class="h-full bg-primary w-4/5"></div>
             </div>
@@ -51,11 +58,11 @@
 </template>
 
 <script setup>
-import { Code, PenTool as Draw } from '@lucide/vue'
+import { Code, Download, PenTool as Draw } from '@lucide/vue'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import profilePhoto from '@/assets/profile-home.jpeg'
 
-const targetText = 'simple, useful, and alive.'
+const targetText = ' large‑language‑model intelligence. '
 const typedText = ref('')
 let typingTimer
 let deletingTimer

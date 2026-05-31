@@ -22,7 +22,7 @@
             </div>
             <div>
               <p class="info-label">Email</p>
-              <p class="info-value">hello@alfiansyah.dev</p>
+              <p class="info-value">sibyanurrizkialfiansyah@gmail.com</p>
             </div>
           </div>
 
@@ -32,7 +32,7 @@
             </div>
             <div>
               <p class="info-label">Phone / WhatsApp</p>
-              <p class="info-value">+62 8xx-xxxx-xxxx</p>
+              <p class="info-value">+62 851-4744-2953</p>
             </div>
           </a>
 
@@ -42,7 +42,7 @@
             </div>
             <div>
               <p class="info-label">Location</p>
-              <p class="info-value">Surabaya, Indonesia</p>
+              <p class="info-value">Bandung - Tasikmalaya, Indonesia</p>
             </div>
           </div>
 

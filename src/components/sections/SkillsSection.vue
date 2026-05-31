@@ -1,8 +1,8 @@
 <template>
   <section class="py-20 bg-surface-noise rounded-xl p-12 mb-20" id="skills">
     <div class="text-center mb-16">
-      <h2 class="font-display text-headline-lg mb-4">Technical Arsenal</h2>
-      <p class="text-on-surface-variant max-w-xl mx-auto">The tools and technologies I use to bring ideas to life across the full development stack.</p>
+      <h2 class="font-display text-headline-lg mb-4">Tools I Use to Build Digital Solutions</h2>
+      <p class="text-on-surface-variant max-w-xl mx-auto">A collection of technologies I use to design, develop, and manage web applications, from databases and APIs to design tools and version control.</p>
     </div>
     <div class="skills-marquee" aria-label="Technology skills carousel">
       <div class="skills-track">
